@@ -1,25 +1,57 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-    <meta charset="UTF-8">
-    <title>Undian Poster Menarik</title>
+  <meta charset="UTF-8" />
+  <title>Undian Poster</title>
+  <style>
+    .option {
+      display: inline-block;
+      margin: 10px;
+      cursor: pointer;
+      border: 3px solid transparent;
+      border-radius: 10px;
+    }
+
+    .option.selected {
+      border-color: blue;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Poster mana yang lebih menarik?</h1>
-    <form id="poll-form">
-        <label><input type="radio" name="poll" value="Sem 1 A"> Sem 1 A</label><br>
-        <label><input type="radio" name="poll" value="Sem 1 B"> Sem 1 B</label><br>
-        <label><input type="radio" name="poll" value="Sem 2 A"> Sem 2 A</label><br>
-        <label><input type="radio" name="poll" value="Sem 2 B"> Sem 2 B</label><br>
-        <button type="submit">Undi</button>
-    </form>
+  <h2>POSTER MANAKAH YANG MENAMBATKAN HATI ANDA?</h2>
 
-    <div id="poll-result" style="display: none;">
-        <h2>Keputusan Undian</h2>
-        <ul id="result-list"></ul>
-        <p id="totalVotes"></p>
+  <form id="poll-form">
+    <div id="image-options">
+      <label class="option" data-value="Sem 1 A">
+        <img src="img/poster1.jpg" alt="Sem 1 A" />
+      </label>
+      <label class="option" data-value="Sem 1 B">
+        <img src="img/poster2.jpg" alt="Sem 1 B" />
+      </label>
+      <label class="option" data-value="Sem 2 A">
+        <img src="img/poster3.jpg" alt="Sem 2 A" />
+      </label>
+      <label class="option" data-value="Sem 2 B">
+        <img src="img/poster4.jpg" alt="Sem 2 B" />
+      </label>
     </div>
+    <input type="hidden" name="poll" id="selectedValue" />
+    <button type="submit">Undi</button>
+  </form>
 
-    <script src="script.js"></script> <!-- Pastikan nama fail JS anda betul -->
+  <div id="poll-result" style="display:none;">
+    <h3>Keputusan Undian</h3>
+    <ul id="result-list"></ul>
+    <p id="totalVotes"></p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
