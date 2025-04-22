@@ -1,51 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <title>Poll Website</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Undian Poster Menarik</title>
 </head>
 <body>
-    <div class="poll-container">
-        <h2>POSTER MANAKAH YANG MENAMBATKAN HATI ANDA?</h2>
-        <form id="poll-form" class="image-poll">
-		<input type="radio" name="vote" value="sem1a"> Poster Sem 1 A<br>
-  		<input type="radio" name="vote" value="sem1b"> Poster Sem 1 B<br>
-  		<input type="radio" name="vote" value="sem2a"> Poster Sem 2 A<br>
-  		<input type="radio" name="vote" value="sem2b"> Poster Sem 2 B<br>
-  		<button type="button" onclick="submitVote()">Undi</button>
-</form>
+    <h1>Poster mana yang lebih menarik?</h1>
+    <form id="poll-form">
+        <label><input type="radio" name="poll" value="Sem 1 A"> Sem 1 A</label><br>
+        <label><input type="radio" name="poll" value="Sem 1 B"> Sem 1 B</label><br>
+        <label><input type="radio" name="poll" value="Sem 2 A"> Sem 2 A</label><br>
+        <label><input type="radio" name="poll" value="Sem 2 B"> Sem 2 B</label><br>
+        <button type="submit">Undi</button>
+    </form>
 
-<p id="totalVotes">Jumlah undian: 0</p>
-            <label>
-                <input type="radio" name="poll" value="Sem 1 A" hidden>
-                <img src="images/sem1a.jpg" alt="Sem 1 A" class="poll-image">
-            </label>
-
-            <label>
-                <input type="radio" name="poll" value="Sem 1 B" hidden>
-                <img src="images/sem1b.jpg" alt="Sem 1 B" class="poll-image">
-            </label>
-
-            <label>
-                <input type="radio" name="poll" value="Sem 2 A" hidden>
-                <img src="images/sem2a.jpg" alt="Sem 2 A" class="poll-image">
-            </label>
-
-            <label>
-                <input type="radio" name="poll" value="Sem 2 B" hidden>
-                <img src="images/sem2b.jpg" alt="Sem 2 B" class="poll-image">
-            </label>
-
-            <br><br>
-            <button type="submit">Vote</button>
-        </form>
-
-        <div id="poll-result" style="display:none;">
-            <h3>Poll Results:</h3>
-            <ul id="result-list"></ul>
-        </div>
+    <div id="poll-result" style="display: none;">
+        <h2>Keputusan Undian</h2>
+        <ul id="result-list"></ul>
+        <p id="totalVotes"></p>
     </div>
-    <script src="script.js"></script>
+
+    <script src="script.js"></script> <!-- Pastikan nama fail JS anda betul -->
 </body>
 </html>
