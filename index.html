@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poll Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="poll-container">
+        <h2>Which semester and class are you in?</h2>
+        <form id="poll-form" class="image-poll">
+
+            <label>
+                <input type="radio" name="poll" value="Sem 1 A" hidden>
+                <img src="images/sem1a.jpg" alt="Sem 1 A" class="poll-image">
+            </label>
+
+            <label>
+                <input type="radio" name="poll" value="Sem 1 B" hidden>
+                <img src="images/sem1b.jpg" alt="Sem 1 B" class="poll-image">
+            </label>
+
+            <label>
+                <input type="radio" name="poll" value="Sem 2 A" hidden>
+                <img src="images/sem2a.jpg" alt="Sem 2 A" class="poll-image">
+            </label>
+
+            <label>
+                <input type="radio" name="poll" value="Sem 2 B" hidden>
+                <img src="images/sem2b.jpg" alt="Sem 2 B" class="poll-image">
+            </label>
+
+            <br><br>
+            <button type="submit">Vote</button>
+        </form>
+
+        <div id="poll-result" style="display:none;">
+            <h3>Poll Results:</h3>
+            <ul id="result-list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
