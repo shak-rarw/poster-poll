@@ -5,6 +5,7 @@ const resultDiv = document.getElementById("poll-result");
 const resultList = document.getElementById("result-list");
 const totalVotesDisplay = document.getElementById("totalVotes");
 
+//objektif untuk simpan kiraan undiian
 let votes = {
     "Sem 1 A": 0,
     "Sem 1 B": 0,
@@ -75,3 +76,5 @@ function displayResults() {
 if (voteCount > 0) {
     displayResults();
 }
+
+
