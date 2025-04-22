@@ -1,10 +1,11 @@
 const form = document.getElementById("poll-form");
 const resultDiv = document.getElementById("poll-result");
 const resultList = document.getElementById("result-list");
+const totalVotesDisplay = document.getElementById("totalVotes");
+const imageOptions = document.querySelectorAll(".option");
+const selectedInput = document.getElementById("selectedValue");
 
-// Tambahan: tempat untuk paparkan jumlah undian
-const totalVotesDiv = document.getElementById("total-votes");
-
+// Data undian
 let votes = {
     "Sem 1 A": 0,
     "Sem 1 B": 0,
@@ -20,6 +21,16 @@ if (localStorage.getItem("pollVotes")) {
 // Ambil bilangan undian pengguna dari localStorage
 let voteCount = parseInt(localStorage.getItem("voteCount")) || 0;
 
+// Pilihan gambar
+imageOptions.forEach(option => {
+    option.addEventListener("click", function () {
+        imageOptions.forEach(opt => opt.classList.remove("selected"));
+        this.classList.add("selected");
+        selectedInput.value = this.dataset.value;
+    });
+});
+
+// Fungsi submit undi
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -28,11 +39,10 @@ form.addEventListener("submit", function (e) {
         return;
     }
 
-    const selected = document.querySelector('input[name="poll"]:checked');
+    const selectedValue = selectedInput.value;
 
-    if (selected) {
-        const choice = selected.value;
-        votes[choice]++;
+    if (selectedValue) {
+        votes[selectedValue]++;
         voteCount++;
 
         // Simpan semula dalam localStorage
@@ -41,24 +51,28 @@ form.addEventListener("submit", function (e) {
 
         displayResults();
     } else {
-        alert("Sila pilih satu pilihan sebelum undi.");
+        alert("Sila pilih salah satu poster sebelum mengundi.");
     }
 });
 
+// Fungsi paparan keputusan
 function displayResults() {
     form.style.display = "none";
     resultDiv.style.display = "block";
     resultList.innerHTML = "";
 
-    let totalVotes = 0;
-
+    let total = 0;
     for (let semester in votes) {
+        total += votes[semester];
         const li = document.createElement("li");
-        li.textContent = `${semester}: ${votes[semester]} vote(s)`;
+        li.textContent = `${semester}: ${votes[semester]} undian`;
         resultList.appendChild(li);
-        totalVotes += votes[semester]; // Tambah ke jumlah keseluruhan
     }
 
-    // Papar jumlah undian
-    totalVotesDiv.textContent = `Jumlah undian keseluruhan: ${totalVotes}`;
+    totalVotesDisplay.textContent = `Jumlah keseluruhan undian: ${total}`;
+}
+
+// Papar terus jika pengguna sudah undi
+if (voteCount > 0) {
+    displayResults();
 }
