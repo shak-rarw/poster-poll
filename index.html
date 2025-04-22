@@ -9,7 +9,14 @@
     <div class="poll-container">
         <h2>POSTER MANAKAH YANG MENAMBATKAN HATI ANDA?</h2>
         <form id="poll-form" class="image-poll">
+		<input type="radio" name="vote" value="sem1a"> Poster Sem 1 A<br>
+  		<input type="radio" name="vote" value="sem1b"> Poster Sem 1 B<br>
+  		<input type="radio" name="vote" value="sem2a"> Poster Sem 2 A<br>
+  		<input type="radio" name="vote" value="sem2b"> Poster Sem 2 B<br>
+  		<button type="button" onclick="submitVote()">Undi</button>
+</form>
 
+<p id="totalVotes">Jumlah undian: 0</p>
             <label>
                 <input type="radio" name="poll" value="Sem 1 A" hidden>
                 <img src="images/sem1a.jpg" alt="Sem 1 A" class="poll-image">
